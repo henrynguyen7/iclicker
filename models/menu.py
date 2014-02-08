@@ -5,8 +5,8 @@
 ## Customize your APP title, subtitle and menus here
 #########################################################################
 
-response.logo = A(B('web',SPAN(2),'py'),XML('&trade;&nbsp;'),
-                  _class="brand",_href="http://www.web2py.com/")
+response.logo = A(B('i','clicker'),XML('&trade;&nbsp;'),
+                  _class="brand",_href="http://henrynguyen7.pythonanywhere.com/iclicker")
 response.title = request.application.replace('_',' ').title()
 response.subtitle = ''
 
@@ -26,6 +26,8 @@ response.google_analytics_id = None
 response.menu = [
     (T('Home'), False, URL('default', 'index'), [])
 ]
+
+response.delimiters = ('<?','?>')
 
 DEVELOPMENT_MENU = True
 
