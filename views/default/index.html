@@ -4,8 +4,8 @@
         <title>iClicker</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
-        <link rel="apple-touch-icon" href="/images/favicon.ico">
+        <link rel="shortcut icon" href="[[=URL('static', 'images/favicon.ico')]]" type="image/x-icon">
+        <link rel="apple-touch-icon" href="[[=URL('static', 'images/favicon.ico')]]">
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -23,13 +23,12 @@
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="offcanvas">
-                        <span class="sr-only">Menu</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#">Office Click</a>
-                    <a class="navbar-brand" href="#">${{count}}</a>
+                    <p class="navbar-text pull-right" href="#">${{count}}</p>
                 </div>
             </div><!-- /.container -->
         </div><!-- /.navbar -->
@@ -40,7 +39,7 @@
                 <!-- SIDE BAR MENU ================================================== -->
                 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
                     <div class="list-group">
-                        <a href="#" class="list-group-item active">Item 1</a>
+                        <a href="#" class="list-group-item active">Item 1 <span class="badge">{{count}}</span></a>
                         <a href="#" class="list-group-item">Item 2</a>
                         <a href="#" class="list-group-item">item 3</a>
                         <a href="#" class="list-group-item">Item 4</a>
@@ -49,13 +48,13 @@
                         <a href="#" class="list-group-item">Item 7</a>
                         <a href="#" class="list-group-item">Item 8</a>
                         <a href="#" class="list-group-item">Item 9</a>
-                    </div>
-                </div><!--/span-->
+                    </div><!-- /.list-group -->
+                </div><!-- /.sidebar -->
 
                 <!-- MAIN CENTER ================================================== -->
                 <div class="col-xs-12 col-sm-9">
                     <img id="clicker" src="[[=URL('static', 'images/staples-easy-button.png')]]" ng-click="count = count + 1" ng-init="count = 0"/>
-                </div>
+                </div><!-- /.main -->
 
             </div><!--/row-->
         <div>
