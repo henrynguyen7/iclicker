@@ -1,0 +1,22 @@
+#clicker {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.clicker-floater {
+    -webkit-animation: float 3s
+}
+
+.hidden {
+    display: none;
+}
+
+@-webkit-keyframes float {
+    0% {
+        -webkit-transform: translateX(0%) translateY(0%);
+    }
+    100% {
+        -webkit-transform: translateX(0%) translateY(-20%);
+    }
+}

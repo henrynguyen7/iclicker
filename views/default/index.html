@@ -9,65 +9,68 @@
 
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-
         <!-- Optional theme -->
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-
-        <style>
-            #clicker {
-                margin-left: auto;
-                margin-right: auto;
-                width: 100%;
-            }
-            .clicker-floater {
-                -webkit-animation: float 3s
-            }
-            .hidden {
-                display: none;
-            }
-            @-webkit-keyframes float {
-                0% {
-                    -webkit-transform: translateX(0%) translateY(0%);
-                }
-                100% {
-                    -webkit-transform: translateX(0%) translateY(-20%);
-                }
-            }
-        </style>
+        <!-- Off-canvas -->
+        <link rel="stylesheet" href="[[=URL('static', 'css/offcanvas.css')]]">
+        <!-- Custom styles -->
+        <link rel="stylesheet" href="[[=URL('static', 'css/styles.css')]]">
     </head>
     <body>
-        <div class="container">
-            <div class="col-md-6">
-                <img id="clicker" src="[[=URL('static', 'images/staples-easy-button.png')]]" ng-click="count = count + 1" ng-init="count=0"/>
-                <img class="hidden clicker-floater" src="[[=URL('static', 'images/staples-easy-button.png')]]" />
-                <p>count: {{count}}</p>
-            </div>
-            <div class="col-md-6">
-                <p>count: {{count}}</p>
-            </div>
-        </div>
 
-        <!-- JQuery ================================================== -->        
+        <!-- TOP BAR NAV ================================================== -->
+        <div class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="offcanvas">
+                        <span class="sr-only">Menu</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Office Click</a>
+                    <a class="navbar-brand" href="#">${{count}}</a>
+                </div>
+            </div><!-- /.container -->
+        </div><!-- /.navbar -->
+
+        <div class="container">
+            <div class="row row-offcanvas row-offcanvas-left">
+
+                <!-- SIDE BAR MENU ================================================== -->
+                <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+                    <div class="list-group">
+                        <a href="#" class="list-group-item active">Item 1</a>
+                        <a href="#" class="list-group-item">Item 2</a>
+                        <a href="#" class="list-group-item">item 3</a>
+                        <a href="#" class="list-group-item">Item 4</a>
+                        <a href="#" class="list-group-item">Item 5</a>
+                        <a href="#" class="list-group-item">Item 6</a>
+                        <a href="#" class="list-group-item">Item 7</a>
+                        <a href="#" class="list-group-item">Item 8</a>
+                        <a href="#" class="list-group-item">Item 9</a>
+                    </div>
+                </div><!--/span-->
+
+                <!-- MAIN CENTER ================================================== -->
+                <div class="col-xs-12 col-sm-9">
+                    <img id="clicker" src="[[=URL('static', 'images/staples-easy-button.png')]]" ng-click="count = count + 1" ng-init="count = 0"/>
+                </div>
+
+            </div><!--/row-->
+        <div>
+
+        <!-- JQuery ================================================== -->
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-        <!-- Bootstrap Latest compiled and minified JavaScript -->
+        <!-- Bootstrap Latest compiled and minified JavaScript ================================================== -->
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+        <!-- Bootstrap off-canvas ================================================== -->
+        <script src="[[=URL('static', 'js/offcanvas.js')]]"></script>
 
         <!-- AngularJS ================================================== -->
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.min.js"></script>
 
-        <script>
-            function click() {
-                var clicker = document.getElementById("clicker");
-                
-                var clickerRegex = new RegExp('(\\s|^)clicker-floater(\\s|$)');
-                
-                clicker.className = clicker.className.replace(clickerRegex,' ');
-                
-                setTimeout(function() {
-                    clicker.className += " clicker-floater";
-                }, 1);
-            }
-        </script>
     </body>
 </html>
