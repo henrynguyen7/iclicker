@@ -53,6 +53,19 @@
 
                 <!-- MAIN CENTER ================================================== -->
                 <div class="col-xs-12 col-sm-9">
+                    <!-- Alerts ================================================== -->
+                    <!-- TODO: Add ng-animate module for .animate-if -->
+                    <div ng-if="count >= 100"  class="alert alert-success alert-dismissable animate-if">
+                        <strong>Woohoo!</strong> Your first $100!
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    </div>
+                    <!-- Progress bars ================================================== -->
+                    <div class="progress progress-striped active">
+                        <div class="progress-bar" role="progressbar" aria-valuenow="{{count}}" aria-valuemin="0" aria-valuemax="100" style="width: {{count}}%;">
+                        {{count}}%
+                        </div>
+                    </div>
+                    <!-- Clicker ================================================== -->
                     <img id="clicker" src="[[=URL('static', 'images/staples-easy-button.png')]]" ng-click="count = count + 1" ng-init="count = 0"/>
                 </div><!-- /.main -->
 
