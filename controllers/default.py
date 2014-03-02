@@ -1,26 +1,14 @@
 # -*- coding: utf-8 -*-
-# this file is released under public domain and you can use without limitations
 
-#########################################################################
-## This is a sample controller
-## - index is the default action of any application
-## - user is required for authentication and authorization
-## - download is for downloading files uploaded in the db (does streaming)
-## - call exposes all registered services (none by default)
-#########################################################################
-
+from pyminer import BitcoinRPC, Miner
+from gluon import *
 
 def index():
-    """
-    example action using the internationalization operator T and flash
-    rendered by views/default/index.html or views/generic.html
+    ip = current.request.client
+    return dict(ip=ip)
 
-    if you need a simple wiki simply replace the two lines below with:
-    return auth.wiki()
-    """
-    response.flash = T("Welcome to iClicker!")
-    return dict(message=T('Hello World'))
-
+def info():
+    return dict()
 
 def user():
     """
@@ -38,3 +26,16 @@ def user():
     to decorate functions that need access control
     """
     return dict(form=auth())
+
+def getblockcount():
+    client = BitcoinRPC("127.0.0.1", "8332", "bitcoinrpc", "asdfasdf")
+    blockcount = client.getblockcount()
+    return dict(blockcount=blockcount)
+
+def submitattempt():
+    uniqueId, timestamp = request.vars.uniqueId, request.vars.timestamp
+    print uniqueId
+    print timestamp
+    miner = Miner("miner")
+    return dict(nonce="",
+                isSuccessfulHash=False)

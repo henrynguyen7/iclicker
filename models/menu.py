@@ -27,7 +27,7 @@ response.menu = [
     (T('Home'), False, URL('default', 'index'), [])
 ]
 
-response.delimiters = ('[[',']]')
+response.delimiters = ('{{','}}')
 
 DEVELOPMENT_MENU = True
 
