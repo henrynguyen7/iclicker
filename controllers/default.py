@@ -37,5 +37,6 @@ def submitattempt():
     print uniqueId
     print timestamp
     miner = Miner("miner")
+    miner.loop()
     return dict(nonce="",
                 isSuccessfulHash=False)

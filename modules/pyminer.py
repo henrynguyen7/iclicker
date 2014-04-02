@@ -121,6 +121,8 @@ class Miner:
 
 		for nonce in xrange(self.max_nonce):
 
+			print "nonce:", nonce
+
 			# encode 32-bit nonce value
 			nonce_bin = struct.pack("<I", nonce)
 
@@ -194,8 +196,9 @@ class Miner:
 			self.submit_work(rpc, work['data'], nonce_bin)
 
 	def loop(self):
-		rpc = BitcoinRPC(settings['host'], settings['port'],
-				 settings['rpcuser'], settings['rpcpass'])
+		# rpc = BitcoinRPC(settings['host'], settings['port'],
+		# 		 settings['rpcuser'], settings['rpcpass'])
+		rpc = BitcoinRPC('127.0.0.1','8332','bitcoinrpc','asdfasdf')
 		if rpc is None:
 			return
 
